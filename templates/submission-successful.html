@@ -1,0 +1,14 @@
+<!--submission-successful.html-->
+
+<!-- 이 위치에 header.html 포함 -->
+{{ template "header.html" .}}
+
+<div>
+    <strong>The article was successfully submitted.</strong>
+
+    <!-- 새로 생성된 기사의 링크를 표시 -->
+    <a href="/article/view/{{.payload.ID}}">{{.payload.Title}}</a>
+</div>
+
+<!-- 이 위치에 footer.html 포함 -->
+{{ template "footer.html" .}}

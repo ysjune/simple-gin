@@ -22,3 +22,26 @@ func TestGetAllArticles(t *testing.T) {
 		}
 	}
 }
+
+func TestGetArticleByID(t *testing.T) {
+	a, err := getArticleByID(1)
+
+	if err != nil || a.ID != 1 || a.Title != "Article 1" || a.Content != "Article 1 body" {
+		t.Fail()
+	}
+}
+
+func TestCreateNewArticle(t *testing.T) {
+
+	originalLength := len(getAllArticles())
+
+	a, err := createNewArticle("New test title", "New test content")
+
+	allArticles := getAllArticles()
+	newLength := len(allArticles)
+
+	if err != nil || newLength != originalLength+1 ||
+		a.Title != "New test title" || a.Content != "New test content" {
+		t.Fail()
+	}
+}

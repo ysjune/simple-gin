@@ -1,0 +1,34 @@
+<!--create-article.html-->
+
+<!--이 위치에 header.html 포함 -->
+{{ template "header.html" .}}
+
+<h1>기사 생성</h1>
+
+
+<div class="panel panel-default col-sm-12">
+    <div class="panel-body">
+        <!--에러 발생할 경우 해당 에러 표시-->
+        {{ if .ErrorTitle}}
+        <p class="bg-danger">
+            {{.ErrorTitle}}: {{.ErrorMessage}}
+        </p>
+        {{end}}
+        <!-- POST '/article/create' 로 라우팅되는 폼을 생성 -->
+        <form class="form" action="/article/create" method="POST">
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" class="form-control" id="title" name="title" placeholder="Title">
+            </div>
+            <div class="form-group">
+                <label for="content">Content</label>
+                <textarea name="content" class="form-control" rows="10" id="content" placeholder="Article Content"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+
+
+<!-- 이 위치에 footer.html 포함 -->
+{{ template "footer.html" .}}

@@ -26,3 +26,14 @@ func getArticleByID(id int) (*article, error) {
 	}
 	return nil, errors.New("기사를 찾을 수 없습니다")
 }
+
+// --- 새로운 기사를 만듭니다. --- //
+func createNewArticle(title, content string) (*article, error) {
+	// --- 기존 기사들 수에 +1 된 값을 아이디에 세팅합니다. --- //
+	a := article{ID: len(articleList) + 1, Title: title, Content: content}
+
+	// --- 기사 목록에 기사를 추가합니다. --- //
+	articleList = append(articleList, a)
+
+	return &a, nil
+}

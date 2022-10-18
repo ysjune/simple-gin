@@ -1,0 +1,7 @@
+### GET render application/json
+GET http://localhost:8080
+Accept: application/json
+
+### GET render application/xml
+GET http://localhost:8080
+Accept: application/xml
