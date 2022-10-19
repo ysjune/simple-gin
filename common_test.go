@@ -9,6 +9,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+var tmpUserList []user
 var tmpArticleList []article
 
 // ------- 이 함수는 테스트 함수를 실행하기 전, 설정에 사용합니다 ----- //
@@ -46,9 +47,11 @@ func testHTTPResponse(t *testing.T, r *gin.Engine, req *http.Request, f func(w *
 // ---- 이 함수는 테스트를 위해 메인 리스트를 임시 리스트에 저장하는데 사용됩니다 ----- //
 func saveLists() {
 	tmpArticleList = articleList
+	tmpUserList = userList
 }
 
 // ------ 이 함수는 임시 리스트에서 메인 리스트를 복구하는데 사용됩니다 ------ //
 func restoreLists() {
 	articleList = tmpArticleList
+	userList = tmpUserList
 }

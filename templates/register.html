@@ -1,0 +1,32 @@
+<!--register.html-->
+
+<!-- 이 위치에 header.html 포함 -->
+{{ template "header.html" .}}
+
+<h1>회원가입</h1>
+
+<div class="panel panel-default col-sm-6">
+    <div class="panel-body">
+        <!-- 에러 발생시 에러 표시 -->
+        {{ if .ErrorTitle}}
+        <p class="bg-danger">
+            {{.ErrorTitle}}: {{.ErrorMessage}}
+        </p>
+        {{end}}
+        <!-- /u/register 로 요청할 폼 생성 -->
+        <form class="form" action="/u/register" method="POST">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" class="form-control" id="username" name="username" placeholder="유저명">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" name="password" class="form-control" id="password" placeholder="패스워드">
+            </div>
+            <button type="submit" class="btn btn-primary">회원가입</button>
+        </form>
+    </div>
+</div>
+
+<!-- 이 위치에 footer.html 포함 -->
+{{ template "footer.html" .}}
