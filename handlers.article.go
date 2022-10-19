@@ -51,22 +51,6 @@ func getArticle(c *gin.Context) {
 	}
 }
 
-// --- Request Header 의 'Accept' 에 따라 HTML, JSON, XML 로 렌더링합니다 --- //
-func render(c *gin.Context, data gin.H, templateName string) {
-	switch c.Request.Header.Get("Accept") {
-	case "application/json":
-		// Respond with JSON
-		c.JSON(http.StatusOK, data["payload"])
-	case "application/xml":
-		// Respond with XML
-		c.XML(http.StatusOK, data["payload"])
-	default:
-		// Respond with HTML
-		c.HTML(http.StatusOK, templateName, data)
-	}
-
-}
-
 func showArticleCreationPage(c *gin.Context) {
 	render(c, gin.H{
 		"title": "Create New Article"}, "create-article.html")

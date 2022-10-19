@@ -8,8 +8,18 @@
       </a>
     </div>
     <ul class="nav navbar-nav">
+      {{ if .is_logged_in }}
       <li><a href="/article/create">기사 생성</a></li>
+      {{end}}
+      {{ if not .is_logged_in }}
       <li><a href="/u/register">회원가입</a></li>
+      {{end}}
+      {{ if not .is_logged_in }}
+      <li><a href="/u/login">로그인</a></li>
+      {{end}}
+      {{ if .is_logged_in }}
+      <li><a href="/u/logout">로그아웃</a></li>
+      {{end}}
     </ul>
   </div>
 </nav>
