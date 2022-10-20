@@ -1,4 +1,4 @@
-module go/simple-gin
+module simple-gin
 
 go 1.18
 

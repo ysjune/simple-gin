@@ -6,3 +6,9 @@
 
 ## Testing the Application
 > go test -v
+
+
+## Intellij Run
+> 1. Run/Debug Configurations
+> 2. run kind -> package
+> 3. package path -> simple-gin (go.mod module)
